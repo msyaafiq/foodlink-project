@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>FoodLink</title>
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- page icon -->
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/f-logo.ico') }}"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'css/my-login.css') }}"
+    />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}"
+    />
+    <!-- style css -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'css/style.css') }}"
+    />
+    <!-- Responsive-->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'css/responsive.css') }}"
+    />
+
+    <!-- Tweaks for older IEs-->
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script
+    ><![endif]-->
+  </head>
+  <!-- body -->
+  <body class="main-layout inner_page">
+    <!-- loader  -->
+    <div class="loader_bg">
+      <div class="loader">
+        <img
+          src="{{ url_for('static', filename = 'images/loading.gif') }}"
+          alt="#"
+        />
+      </div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <div class="header">
+      <div class="container">
+        <div class="row d_flex">
+          <div class="col-md-2 col-sm-3 col logo_section">
+            <div class="full">
+              <div class="center-desk">
+                <div class="logo">
+                  <a href="/">
+                    <img
+                      class="uempower_logo"
+                      src="{{ url_for('static', filename = 'images/uempower_logo.png') }}"
+                      alt="FoodLink Logo"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <nav class="navigation navbar navbar-expand-md navbar-dark">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarsExample04"
+                aria-controls="navbarsExample04"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarsExample04">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                  </li>
+
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contact-us">Contact Us</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="col-md-2 d_none">
+            <ul class="email text_align_right">
+              <li><a href="/login">Sign In </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header inner -->
+    <br><br>
+    <!-- register form -->
+    <section class="h-100">
+      <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+          <div class="card-wrapper">
+            <div class="centered-logo">
+              <img
+                src="{{url_for('static', filename='images/f-logo.png')}}"
+                alt="logo"
+                class="logo"
+              />
+            </div>
+            <div class="card fat">
+              <div class="card-body">
+                <h4 class="card-title">Register</h4>
+                <!-- Inside the register.html template -->
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <div class="alert alert-danger">
+                      <ul>
+                        {% for message in messages %}
+                          <li>{{ message }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
+                  {% endwith %}
+
+                <form method="POST" class="my-login-validation" novalidate="">
+                  <div class="form-group">
+                      <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" required>
+                      <div class="invalid-feedback">Name is required</div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="email">E-Mail Address</label>
+                      <input id="email" type="email" class="form-control" name="email" required>
+                      <div class="invalid-feedback">Your email is invalid</div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input id="password" type="password" class="form-control" name="password" required>
+                      <div class="invalid-feedback">Password is required</div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="confirm-password">Confirm Password</label>
+                      <input id="confirm-password" type="password" class="form-control" name="confirm_password" required>
+                      <div class="invalid-feedback">Please confirm your password</div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="gender">Gender</label>
+                      <select id="gender" class="form-control" name="gender" required>
+                          <option value="" disabled selected>Select gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                      </select>
+                      <div class="invalid-feedback">Gender is required</div>
+                  </div>
+              
+                  <div class="form-group">
+                      <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="user-role" name="user-role" value="user" required>
+                          <label class="custom-control-label" for="user-role">Register as a User</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="donor-role" name="user-role" value="donor" required>
+                          <label class="custom-control-label" for="donor-role">Register as a Donor</label>
+                      </div>
+                      <!-- <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="admin-role" name="admin-role" value="admin" required>
+                        <label class="custom-control-label" for="admin-role">Register as a Admin</label>
+                      </div> -->
+                  </div>
+              
+                  <div class="form-group m-0">
+                      <button type="submit" class="btn btn-primary btn-block">Register</button>
+                  </div>
+                  <div class="mt-4 text-center">
+                      Already have an account? <a href="/login">Login</a>
+                  </div>
+              </form>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of register form -->
+
+    <!-- Javascript files-->
+    <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
+    
+    <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
+    <!-- sidebar -->
+    <script src="{{ url_for('static', filename = 'js/custom.js') }}"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollToAboutButton = document.getElementById("scrollToAbout");
+        const aboutSection = document.getElementById("about");
+
+        scrollToAboutButton.addEventListener("click", function () {
+          aboutSection.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const password = document.getElementById('password');
+          const confirmPassword = document.getElementById('confirm-password');
+  
+          password.addEventListener('input', validatePassword);
+          confirmPassword.addEventListener('input', validatePassword);
+  
+          function validatePassword() {
+              if (password.value !== confirmPassword.value) {
+                  confirmPassword.setCustomValidity('Passwords must match');
+              } else {
+                  confirmPassword.setCustomValidity('');
+              }
+          }
+      });
+  </script>
+  
+  </body>
+</html>
