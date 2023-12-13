@@ -66,12 +66,13 @@
             <div class="full">
               <div class="center-desk">
                 <div class="logo">
-                  <a href="/">
+                  <a href="">
                     <img
                       class="uempower_logo"
                       src="{{ url_for('static', filename = 'images/uempower_logo.png') }}"
                       alt="FoodLink Logo"
-                  /></a>
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -90,27 +91,24 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarsExample04">
-                <ul class="navbar-nav mr-auto">
+                <!-- Move items to the right on all screen sizes -->
+                <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                   </li>
-
-                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/contact-us">Contact Us</a>
                   </li>
-                  
+                  <!-- Add Sign In link here -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Sign In</a>
+                  </li>
                 </ul>
               </div>
             </nav>
-          </div>
-          <div class="col-md-2 d_none">
-            <ul class="email text_align_right">
-              <li><a href="/login">Sign In </a></li>
-            </ul>
           </div>
         </div>
       </div>

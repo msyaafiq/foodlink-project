@@ -66,7 +66,7 @@
             <div class="full">
               <div class="center-desk">
                 <div class="logo">
-                  <a href="/">
+                  <a href="/donor">
                     <img
                       class="uempower_logo"
                       src="{{ url_for('static', filename = 'images/uempower_logo.png') }}"
@@ -92,7 +92,7 @@
               <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/donor">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/donor/donate">Donate Now</a>
@@ -100,24 +100,214 @@
                   <li class="nav-item active">
                     <a class="nav-link" href="/donor/contact-us">Contact Us</a>
                   </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Logout</a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="/contact-us">Contact Us</a>
-                  </li> -->
-                  
                 </ul>
               </div>
             </nav>
-          </div>
-          <div class="col-md-2 d_none">
-            <ul class="email text_align_right">
-              <li><a href="/">Logout </a></li>
-            </ul>
           </div>
         </div>
       </div>
     </div>
     <!-- end header inner -->
+    <!-- about -->
+    <div class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="titlepage text_align_center">
+              <h2>Donor <span class="blue_light">HOMEPAGE</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end about -->
+    <!-- top -->
+    <div class="full_bg">
+      <div class="slider_main">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- carousel code -->
+              <div id="banner1" class="carousel slide">
+                <ol class="carousel-indicators">
+                  <li
+                    data-target="#banner1"
+                    data-slide-to="0"
+                    class="active"
+                  ></li>
+                  <li data-target="#banner1" data-slide-to="1"></li>
+                  <li data-target="#banner1" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <!-- first slide -->
+                  <div class="carousel-item active">
+                    <div class="carousel-caption relative">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="dream">
+                            <h1>
+                              Sharing Food <br />
+                              Spreading Love
+                            </h1>
+                            <a class="read_more" href="/donor/donate"
+                              >Donate Now</a
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="dream_img">
+                            <figure>
+                              <img
+                                class="circular-frame"
+                                src="{{ url_for('static', filename = 'images/foodbank-illustration-1.jpg') }}"
+                                alt="foodbank-illustration-1"
+                              />
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- second slide -->
+                  <div class="carousel-item">
+                    <div class="carousel-caption relative">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="dream">
+                            <h1>
+                              Feeding the Future <br />
+                              Today
+                            </h1>
+                            <a class="read_more" href="/donor/donate"
+                              >Donate Now</a
+                            >
+                            <a class="read_more" href="/donor/contact-us"
+                              >Contact Us</a
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="dream_img">
+                            <figure>
+                              <img
+                                class="circular-frame"
+                                src="{{ url_for('static', filename = 'images/foodbank-illustration-2.jpg') }}"
+                                alt="#"
+                              />
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- third slide-->
+                  <div class="carousel-item">
+                    <div class="carousel-caption relative">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="dream">
+                            <h1>
+                              Building <br />
+                              a Hunger-Free <br />
+                              World
+                            </h1>
+                            <a class="read_more" href="/donor/donate"
+                              >Donate Now</a
+                            >
+                            <a class="read_more" href="/donor/contact-us"
+                              >Contact Us</a
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="dream_img">
+                            <figure>
+                              <img
+                                class="circular-frame"
+                                src="{{ url_for('static', filename = 'images/foodbank-illustration-3.jpg') }}"
+                                alt="#"
+                              />
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- controls -->
+                <a
+                  class="carousel-control-prev"
+                  href="#banner1"
+                  role="button"
+                  data-slide="prev"
+                >
+                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a
+                  class="carousel-control-next"
+                  href="#banner1"
+                  role="button"
+                  data-slide="next"
+                >
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end banner -->
+    <!-- domain -->
+    <div class="domain">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="titlepage text_align_center">
+              <h2>Global Hunger <span class="blue_light">Index</span></h2>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1
+            style="
+              display: block !important ;
+              font-size: 2.5vw;
+              text-align: center;
+            "
+          >
+            Malaysia
+          </h1>
+          <br />
+          <p style="text-align: center">
+            In the 2023 Global Hunger Index, Malaysia ranks
+            <strong>56<sup>th</sup></strong
+            >&nbsp;out of the
+            <a href="https://www.globalhungerindex.org/ranking.html"
+              >125 countries with sufficient data to calculate 2023 GHI
+              scores</a
+            >. With a score of <strong>12.5</strong> in the 2023 Global Hunger
+            Index, Malaysia has a level of hunger that is
+            <strong><em>moderate</em></strong
+            >.
+          </p>
+          <br />
+
+          <img
+            src="{{ url_for('static', filename = 'images/hunger-trend.png') }}"
+            alt=""
+            style="display: block; margin: 0 auto; width: 70%"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- end domain -->
     <!-- about -->
     <div class="about">
       <div class="container">
@@ -148,7 +338,7 @@
       </div>
     </div>
     <!-- end about -->
-    
+
     <!--  footer -->
     <footer>
       <div class="footer">
