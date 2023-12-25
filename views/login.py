@@ -4,8 +4,18 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
+# Retrieve Firebase credentials
 cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred)
+
+# Check if Firebase app is already initialized
+if not firebase_admin._apps:
+    # If not initialized, initialize Firebase app
+    firebase_admin.initialize_app(
+        cred, {'databaseURL': 'https://foodlink-f9689-default-rtdb.asia-southeast1.firebasedatabase.app/'})
+
+
+def get_firebase_cred():
+    return cred
 
 # Initialize Firebase (use your Firebase configuration)
 config = {
