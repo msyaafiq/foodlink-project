@@ -43,8 +43,18 @@
     />
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script
+      <script src="https://oss.maxcdn.com/re  spond/1.4.2/respond.min.js"></script
     ><![endif]-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLBIGkMwk-ZH4EjGupegArNaU1IWylBBc&callback=initMap" defer></script>
+    
+    <style>
+      /* Set the map container size */
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    
   </head>
   <!-- body -->
   <body class="main-layout inner_page">
@@ -77,7 +87,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8 col-sm-12">
+          
+
+          <div class="col-md-10 col-sm-12">
             <nav class="navigation navbar navbar-expand-md navbar-dark">
               <button
                 class="navbar-toggler"
@@ -92,17 +104,20 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
+                  <li class="nav-item">
                     <a class="nav-link" href="/user">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/user/about">About</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                     <a class="nav-link" href="/user/get-food">Get Food</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/user/food-availability">Food Availability</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="/user/user-profile">User Profile</a>
                   </li>
                   </li>
                   <li class="nav-item">
@@ -129,118 +144,37 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-10 offset-md-1">
             <div class="form">
               <div class="searchbar">
-                <input
-                  class="search_input"
-                  type="text"
-                  name=""
-                  placeholder="Enter your location"
-                />
-                <a href="#" class="search_icon"
-                  ><i class="fa fa-search" aria-hidden="true"></i>
+                <!-- Replace the input field with a dropdown menu -->
+                <select class="search_input" id="locationSelect">
+                  <option value="" selected>- Click here and pick the nearby location -</option>
+                  <option value="bukitJalil">National Stadium Bukit Jalil</option>
+                  <option value="pusatSukanUPM">Pusat Sukan UPM</option>
+                  <option value="mbsjStadium">MBSJ Stadium, Serdang Jaya</option>
+                </select>
+                <a href="#" class="search_icon" onclick="searchLocation()">
+                  <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
           </div>
+          
+          
+          
           <div class="col-md-10 offset-md-1">
             <div class="domain_bg">
-              <img
-                style="
-                  max-width: none;
-                  width: 900px;
-                  height: 600px;
-
-                  display: block;
-                  border-radius: 20px;
-                  align-items: center;
-                  justify-content: center;
-                "
-                src="{{ url_for('static', filename = 'images/maps.png') }}"
-                alt=""
-              />
-
-              <a class="read_more" href="domain.html">See More</a>
+              <div id="map"></div>
+              <button class="read_more_get_food" id="getFoodInfoBtn" onclick="getFoodAvailability()">Get Food Availability</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <div class="domain">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="titlepage text_align_center">
-              <h2>all starts with <span class="blue_light">a domain</span></h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-10 offset-md-1">
-            <div class="form">
-              <div class="searchbar">
-                <input
-                  class="search_input"
-                  type="text"
-                  name=""
-                  placeholder="Search Domain"
-                />
-                <a href="#" class="search_icon"
-                  ><i class="fa fa-search" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-10 offset-md-1">
-            <div class="domain_bg">
-              <div class="row">
-                <div class="col-sm-2">
-                  <div class="domain-price">
-                    <strong
-                      >Domain <br />
-                      Per Year</strong
-                    >
-                  </div>
-                </div>
-                <div class="col-sm-10">
-                  <div class="domain-price_main">
-                    <div class="domain-price">
-                      <span>com.</span>
-                      <strong>$22.999</strong>
-                    </div>
-                    <div class="domain-price">
-                      <span>com.</span>
-                      <strong>$22.999</strong>
-                    </div>
-                    <div class="domain-price">
-                      <span>com.</span>
-                      <strong>$22.999</strong>
-                    </div>
-                    <div class="domain-price">
-                      <span>com.</span>
-                      <strong>$22.999</strong>
-                    </div>
-                    <div class="domain-price">
-                      <span>com.</span>
-                      <strong>$22.999</strong>
-                    </div>
-                    <div class="domain-price">
-                      <span>com.</span>
-                      <strong>$22.999</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a class="read_more" href="domain.html">See More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- end domain -->
+    
     <!--  footer -->
     <footer>
       <div class="footer">
@@ -318,5 +252,67 @@
     <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
     <!-- sidebar -->
     <script src="{{ url_for('static', filename = 'js/custom.js') }}"></script>
+    <script>
+      var map; // Declare a global variable for the map
+      var marker; // Declare a global variable for the marker
+    
+      function initMap() {
+        var defaultLocation = { lat: 2.9998463528944432, lng: 101.71043701777222 }; // Faculty of Computer Science and Information Technology, UPM (default location)
+        var mapOptions = {
+          center: defaultLocation,
+          zoom: 15 // You can adjust the zoom level as needed
+        };
+    
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    
+        // Add a marker for the default location (Faculty of Computer Science and Information Technology, UPM)
+        marker = new google.maps.Marker({
+          position: defaultLocation,
+          map: map,
+          title: 'Faculty of Computer Science and Information Technology, UPM'
+          // You can add more properties to the marker as needed
+        });
+      }
+    
+      function searchLocation() {
+        var locationSelect = document.getElementById('locationSelect');
+        var selectedLocation = locationSelect.value;
+    
+        // Clear existing marker if present
+        if (marker) {
+          marker.setMap(null);
+        }
+    
+        // Show marker only if a location is selected
+        if (selectedLocation !== '') {
+          // Set the center and zoom level based on the selected location
+          switch (selectedLocation) {
+            case 'bukitJalil':
+              map.setCenter({ lat: 3.054621403298994, lng: 101.6912735087745 }); // National Stadium Bukit Jalil
+              map.setZoom(15);
+              break;
+            case 'pusatSukanUPM':
+              map.setCenter({ lat: 2.9872784074705216, lng: 101.72602572118514 }); // Pusat Sukan UPM
+              map.setZoom(15);
+              break;
+            case 'mbsjStadium':
+              map.setCenter({ lat: 3.0219063371402926, lng: 101.71083368962528 }); // MBSJ Stadium in Serdang Jaya
+              map.setZoom(15);
+              break;
+            default:
+              // Handle unknown location
+              break;
+          }
+    
+          // Add a marker for the selected location
+          marker = new google.maps.Marker({
+            position: map.getCenter(),
+            map: map,
+            title: selectedLocation
+          });
+        }
+      }s
+    </script>
+    
   </body>
 </html>

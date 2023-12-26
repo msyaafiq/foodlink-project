@@ -33,7 +33,8 @@ def maintenance():
 def user_list_page():
     return render_template('admin/page-list-users.html')
 
-@admin_bp.route('/add-users')   
+
+@admin_bp.route('/add-users')
 def add_user_page():
     return render_template('admin/page-add-users.html')
 
