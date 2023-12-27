@@ -36,6 +36,12 @@ def about():
 def user_profile():
     return render_template('user/user-profile.html')
 
+
+@user_bp.route('/user-profile-edit')
+def user_profile_edit():
+    return render_template('user/user-profile-edit.html')
+
+
 @user_bp.route('/contact-us')
 def contact_us():
     return render_template('user/contact-us.html')
