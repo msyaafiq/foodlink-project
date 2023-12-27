@@ -55,27 +55,21 @@ def get_food():
 @user_bp.route('/food-availability')
 def food_availability():
     # return render_template('user/food-availability.html')
-    selected_location_key = request.args.get('location', '')
+    # selected_location_key = request.args.get('location', '')
 
-    # Use the mapping to get the full name based on the key
-    selected_location_full_name = location_mapping.get(
-        selected_location_key, 'Unknown Location')
+    # # Use the mapping to get the full name based on the key
+    # selected_location_full_name = location_mapping.get(
+    #     selected_location_key, 'Unknown Location')
 
-    return render_template('user/food-availability.html', selected_location=selected_location_full_name)
+    # return render_template('user/food-availability.html', selected_location=selected_location_full_name)
 
-    # try:
-    #     # Reference to the 'food-count' document in Firestore
-    #     food_count_ref = db.collection('food-count').document('0')
+    try:
+        # Retrieve the food count from the Realtime Database
+        food_count = food_count_ref.get()
 
-    #     # Retrieve the food count from Firestore
-    #     food_count_data = food_count_ref.get().to_dict()
-
-    #     # Extract the 'count' field from the document
-    #     food_count = food_count_data.get('count', 0)
-
-    #     # Render the HTML template with the food count
-    #     return render_template('user/food-availability.html', food_count=food_count)
-    # except Exception as e:
-    #     # Handle the exception (e.g., display an error page)
-    #     print(f"Error fetching food count: {e}")
-    #     return render_template('error.html', error_message="Failed to fetch food count")
+        # Render the HTML template with the food count
+        return render_template('user/food-availability.html', food_count=food_count)
+    except Exception as e:
+        # Handle the exception (e.g., display an error page)
+        print(f"Error fetching food count: {e}")
+        return render_template('user/food-availability.html', food_count=0)
