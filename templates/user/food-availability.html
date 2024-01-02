@@ -150,7 +150,9 @@
               <li>Food: <span id="food-value">{{ food_value }}10</span></li>
               <li>Water: <span id="water-value">{{ water_value }}20</span></li>
             </ul> -->
-            <h1>The current food count is: {{ food_count }}</h1>
+            <!-- <h1>The current food count is: {{ food_count }}</h1> -->
+            <h1>The current food count is: <span id="food-count"></span></h1>
+
             <!-- <div class="centered-box">
               
             </div> -->
@@ -340,6 +342,31 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database-compat.js"></script>
     <script src="{{ url_for('static', filename = 'js/graph.data.js') }}"></script>
+
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyDLo6oAxZQRS-6r2RkQJGdONQJax-5-2b8",
+        authDomain: "foodlink-f9689.firebaseapp.com",
+        databaseURL: "https://foodlink-f9689-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "foodlink-f9689",
+        storageBucket: "foodlink-f9689.appspot.com",
+        messagingSenderId: "912138894281",
+        appId: "1:912138894281:web:514ff890b7ecb043ec0618"
+      };
+      firebase.initializeApp(firebaseConfig);
+    
+      // Reference to the 'food-count' node in the Realtime Database
+      var foodCountRef = firebase.database().ref('food-count');
+    
+      // Update the food count on the web page when the value changes
+      foodCountRef.on('value', function(snapshot) {
+        var foodCount = snapshot.val();
+        $('#food-count').text(foodCount);
+      });
+    </script>
+
+
     <!-- JavaScript code to populate the chart -->
     <!-- <script>
       // Get the canvas element
